@@ -1,26 +1,13 @@
-package com.unimoni.oauth.model;
-
+package com.unimoni.oauth.request.dto;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "user")
-public class User {
+public class UserReq {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 
-	@Column(unique = true)
 	private String userName;
 	private String password;
 	private String firstName;
@@ -33,35 +20,10 @@ public class User {
 	private int isGuest;
 	private Date createdOn;
 	private Date modifiedOn;
-	@Column(unique = true)
 	private int userIdentity = hashCode();
-	
-	
-	
 
-	public User() {
-		super();
-	}
-
-	
-	public User(Long userId, String userName, String password, String firstName, String middleName, String lastName,
-			String email, String mobileNumber, int isActive, int isEmailVerified, int isGuest, Date createdOn,
-			Date modifiedOn, int userIdentity) {
-		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.password = password;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
-		this.email = email;
-		this.mobileNumber = mobileNumber;
-		this.isActive = isActive;
-		this.isEmailVerified = isEmailVerified;
-		this.isGuest = isGuest;
-		this.createdOn = createdOn;
-		this.modifiedOn = modifiedOn;
-		this.userIdentity = userIdentity;
+	public UserReq() {
+			super();
 	}
 
 
@@ -117,7 +79,6 @@ public class User {
 		return modifiedOn;
 	}
 
-
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
@@ -170,25 +131,12 @@ public class User {
 		this.modifiedOn = modifiedOn;
 	}
 
-	
 	public int getUserIdentity() {
 		return userIdentity;
 	}
 
 	public void setUserIdentity(int userIdentity) {
 		this.userIdentity = userIdentity;
-	}
-
-	
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((createdOn == null) ? 0 : createdOn.hashCode());
-		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
 	}
 
 }
